@@ -19,7 +19,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth','admin'])->group(function () {
-Route::get('/test_admin', [AdminController::class, 'test_admin'])->name('admin.test');
+Route::get('/add_category', [AdminController::class, 'addCategory'])->name('admin.addcategory');
+route::post('/add_category',[AdminController::class,'postAddCategory'])->name('admin.postaddcategory');
 
 });
 
