@@ -42,7 +42,7 @@
         <div class="container-fluid d-flex align-items-center justify-content-between">
           <div class="navbar-header">
             <!-- Navbar Header--><a href="index.html" class="navbar-brand">
-              <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">Dark</strong><strong>Admin</strong></div>
+              <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">Admin</strong><strong>Panel</strong></div>
               <div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div></a>
             <!-- Sidebar Toggle Btn-->
             <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
@@ -73,7 +73,7 @@
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="avatar"><img src="admin/img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
           <div class="title">
             <h1 class="h5">Admin</h1>
             <p>E-Commerce</p>
@@ -111,6 +111,8 @@
           @yield('add_category')
 
           @yield('view_category')
+
+          @yield('update_category')
 
         </section>
 

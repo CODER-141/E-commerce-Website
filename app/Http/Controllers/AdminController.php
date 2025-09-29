@@ -26,6 +26,20 @@ class AdminController extends Controller
         $category=Category::findOrFail($id);
 
         $category->delete();
-        return redirect()->back()->with('deletecategory_message','Delete Successfully');
+        return redirect()->back()->with('deletecategory_message','Category Delete Successfully');
+    }
+
+    public function updateCategory($id){
+        $category=Category::findOrFail($id);
+
+        return view('admin.updatecategory',compact('category'));
+    }
+
+    public function postUpdateCategory(Request $request,$id){
+        $category=Category::findOrFail($id);
+
+        $category->category=$request->category;
+        $category->save();
+        return redirect()->back()->with('category_updated_message','Category Updated Successfully');
     }
 }
