@@ -22,6 +22,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/add_category', [AdminController::class, 'addCategory'])->name('admin.addcategory');
     route::post('/add_category', [AdminController::class, 'postAddCategory'])->name('admin.postaddcategory');
     Route::get('/view_category', [AdminController::class, 'viewCategory'])->name('admin.viewcategory');
+    Route::get('/delete_category/{id}', [AdminController::class, 'deleteCategory'])->name('admin.categorydelete');
+    
 });
 
 require __DIR__ . '/auth.php';

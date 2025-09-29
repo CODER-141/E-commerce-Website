@@ -21,4 +21,11 @@ class AdminController extends Controller
         $categoryies=Category::all();
         return view('admin.viewcategory',compact('categoryies'));
     }
+
+    public function deleteCategory($id){
+        $category=Category::findOrFail($id);
+
+        $category->delete();
+        return redirect()->back()->with('deletecategory_message','Delete Successfully');
+    }
 }
