@@ -3,9 +3,10 @@
 @section('add_category')
 
 @if(session('category_message'))
-<div class="mb-4 bg-green-100 border-green-400 text-green-700 px-4 py-3 rounded relative">
+<div class="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
     {{ session('category_message') }}
-</div>
+</div> 
+
 @endif
 
 <div class="container-fluid">

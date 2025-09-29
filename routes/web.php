@@ -10,7 +10,7 @@ Route::get('/', function () {
 })->name('index');
 
 
-Route::get('/dashboard', [UserController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -18,10 +18,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth','admin'])->group(function () {
-Route::get('/add_category', [AdminController::class, 'addCategory'])->name('admin.addcategory');
-route::post('/add_category',[AdminController::class,'postAddCategory'])->name('admin.postaddcategory');
-
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/add_category', [AdminController::class, 'addCategory'])->name('admin.addcategory');
+    route::post('/add_category', [AdminController::class, 'postAddCategory'])->name('admin.postaddcategory');
+    Route::get('/view_category', [AdminController::class, 'viewCategory'])->name('admin.viewcategory');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
