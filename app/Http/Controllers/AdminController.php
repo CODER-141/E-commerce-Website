@@ -67,9 +67,14 @@ class AdminController extends Controller
         $product -> save();
 
         if($image && $product->save()){
-            $request->product_image->move('products',$image);
+            $request->product_image->move('products',$imagename);
         }
         return redirect()->back()->with('product_message','Product Added Successfullt!');
+    }
+
+    public function viewProduct(){
+        $products = Product::all();
+        return view ('admin.viewproduct',compact('products'));
     }
 }
 
