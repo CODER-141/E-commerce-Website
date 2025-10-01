@@ -22,7 +22,7 @@ This project provides a scalable and secure platform for buying & selling produc
 - 🏠 Modern Home Page with product categories & banners  
 - 🔍 Advanced Product Search & Filtering  
 - 🛍️ Add to Cart & Checkout system  
-- 💳 Secure Payment Integration (Stripe / PayPal ready)  
+- 💳 Secure Payment Integration 
 - ⭐ Product Ratings & Reviews  
 
 ### 🛠️ Admin Features

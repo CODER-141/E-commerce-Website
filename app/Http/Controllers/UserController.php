@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -15,5 +17,10 @@ class UserController extends Controller
             return view('admin.dashboard');
             }
         }
+    }
+    public function home(){
+        $products = Product::all();
+        return view('index',compact('products')); 
+
     }
 }
