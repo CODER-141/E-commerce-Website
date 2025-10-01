@@ -41,7 +41,7 @@
             </td>
             <td style="padding: 12px;"> {{ $product->product_category }}</td>
             <td style="padding: 12px;">
-                <a href="#" style="color: green;">Update</a>
+                <a href="{{ route('admin.updateproduct',$product->id) }}" style="color: green;">Update</a>
                 <a href="{{ route('admin.deleteproduct',$product->id) }}"onclick="return confirm('Are you want to delete this product')">Delete</a>
             </td>
         </tr>

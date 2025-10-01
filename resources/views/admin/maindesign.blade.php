@@ -116,6 +116,8 @@
 
           @yield('add_product')
 
+          @yield('update_product')
+
         </section>
 
         <!-- End of all sections-->
