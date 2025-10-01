@@ -118,5 +118,14 @@ class AdminController extends Controller
         }
         return redirect()->back()->with('productupdate_message','Product updated Successfullt!');
     }
+
+    public function searchProduct(Request $request){
+        $products=Product::where('product_title','LIKE','%'.$request->search.'%')
+                        ->orwhere('product_description','LIKE','%'.$request->search.'%')
+                        ->orwhere('product_category','LIKE','%'.$request->search.'%')
+                        ->paginate(3);
+
+        return view ('admin.viewproduct',compact('products'));
+    }
 }
 

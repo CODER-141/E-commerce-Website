@@ -29,8 +29,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/delete_product/{id}', [AdminController::class, 'deleteProduct'])->name('admin.deleteproduct');
     Route::get('/update_product/{id}', [AdminController::class, 'updateProduct'])->name('admin.updateproduct');
     route::post('/update_product/{id}', [AdminController::class, 'postUpdateProduct'])->name('admin.postupdateproduct');
-    
-    
+    route::any('/search', [AdminController::class, 'searchProduct'])->name('admin.searchproduct');
+
 });
 
 require __DIR__ . '/auth.php';

@@ -13,7 +13,15 @@
 </div>
 @endif
 
-
+<div class="list-inline-time">
+    <form action="{{ route('admin.searchproduct') }}" method="POST">
+        @csrf
+        <div class="form-group">
+            <input type="search" name="search" placeholder="What are you searching for...">
+            <button type="submit" class="submit">Search</button>
+        </div>
+    </form>
+</div>
 
 <table style="width:100%; border-collapse:collapse; font-family:Arial, sans-serif;">
     <thead>
@@ -36,13 +44,14 @@
             {{-- <td style="padding: 12px;">{{ Str::limit($product->product_description,50,'.......') }}</td> --}}
             <td style="padding: 12px;"> {{ $product->product_quantity }}</td>
             <td style="padding: 12px;"> {{ $product->product_price }}</td>
-            <td style="padding: 12px;"> 
+            <td style="padding: 12px;">
                 <img style="width: 150px;" src="{{ asset('products/'.$product->product_image) }}">
             </td>
             <td style="padding: 12px;"> {{ $product->product_category }}</td>
             <td style="padding: 12px;">
                 <a href="{{ route('admin.updateproduct',$product->id) }}" style="color: green;">Update</a>
-                <a href="{{ route('admin.deleteproduct',$product->id) }}"onclick="return confirm('Are you want to delete this product')">Delete</a>
+                <a href="{{ route('admin.deleteproduct',$product->id) }}"
+                    onclick="return confirm('Are you want to delete this product')">Delete</a>
             </td>
         </tr>
         @endforeach

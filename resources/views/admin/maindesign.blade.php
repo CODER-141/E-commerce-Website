@@ -28,17 +28,7 @@
   <body>
     <header class="header">   
       <nav class="navbar navbar-expand-lg">
-        <div class="search-panel">
-          <div class="search-inner d-flex align-items-center justify-content-center">
-            <div class="close-btn">Close <i class="fa fa-close"></i></div>
-            <form id="searchForm" action="#">
-              <div class="form-group">
-                <input type="search" name="search" placeholder="What are you searching for...">
-                <button type="submit" class="submit">Search</button>
-              </div>
-            </form>
-          </div>
-        </div>
+
         <div class="container-fluid d-flex align-items-center justify-content-between">
           <div class="navbar-header">
             <!-- Navbar Header--><a href="index.html" class="navbar-brand">
@@ -50,7 +40,6 @@
           <div class="right-menu list-inline no-margin-bottom">    
             <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link messages-toggle"><i class="icon-email"></i><span class="badge dashbg-1">5</span></a>
           </div>
-      
 
             <!-- Log out               -->
             <div class="list-inline-item logout">                  
@@ -81,7 +70,7 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <ul class="list-unstyled">
-                <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
+                <li class="active"><a href="{{ route('dashboard') }}"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Category </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{ route('admin.addcategory') }}">Add Category</a></li>
