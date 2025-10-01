@@ -80,7 +80,12 @@ class AdminController extends Controller
 
     public function deleteProduct($id){
         $product = Product::findOrFail($id);
-        $product->delete();
+        //$product->delete(); if you don't want to delete image when you delete the product use this 
+        // when product is delete it image also deleted from this 
+        $image_path = public_path('products/'.$product->product_image);
+        if(file_exists($image_path)){
+            unlink($image_path);
+        }
         return redirect()->back()->with('deleteproduct_message','Product Deleted Successfully!');
     }
 }
