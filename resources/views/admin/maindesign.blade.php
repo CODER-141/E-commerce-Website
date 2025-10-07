@@ -70,17 +70,24 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <ul class="list-unstyled">
-                <li class="active"><a href="{{ route('dashboard') }}"> <i class="icon-home"></i>Home </a></li>
+                <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                  <a href="{{ route('dashboard') }}"> <i class="icon-home"></i>Home </a></li> 
+
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Category </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="{{ route('admin.addcategory') }}">Add Category</a></li>
-                    <li><a href="{{ route('admin.viewcategory') }}">View Category</a></li>
+                    <li class="{{ request()->routeIs('admin.addcategory') ? 'active' : '' }}">
+                      <a href="{{ route('admin.addcategory') }}">Add Category</a></li>
+                    <li class="{{ request()->routeIs('admin.viewcategory') ? 'active' : '' }}">
+                      <a href="{{ route('admin.viewcategory') }}">View Category</a></li>
                   </ul>
                 </li>
+
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Product</a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="{{ route('admin.addproduct') }}">Add Product</a></li>
-                    <li><a href="{{ route('admin.viewproduct') }}">View Product</a></li>
+                    <li class="{{ request()->routeIs('admin.addproduct') ? 'active' : '' }}">
+                      <a href="{{ route('admin.addproduct') }}">Add Product</a></li>
+                    <li class="{{ request()->routeIs('admin.viewproduct') ? 'active' : '' }}">
+                      <a href="{{ route('admin.viewproduct') }}">View Product</a></li>
                     <li><a href="#">View Oders</a></li>
                   </ul>
                 </li>
