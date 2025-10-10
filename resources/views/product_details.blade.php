@@ -53,7 +53,7 @@
                     <textarea placeholder="Your Review" style="width:100%; padding #add; border-radius:4px; box-sizing:border -box;
                     min-height:100px;"></textarea>
                 </div>
-                <button type="submit" style="background: #2a5885; color: white; border:none; padding: 10px 20px; font-size:4px; cursor:pointer">
+                <button type="submit" style="background:#2a5885; color:white;border:none; padding:12px 25px; font-size:16px; border-radius:4px;cursor:pointer;">
                     Submit Review
                 </button>
             </form>

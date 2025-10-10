@@ -151,6 +151,7 @@
  
     @yield('index')
     @yield('product_details')
+    @yield('all_products')
 
   </section>
 
