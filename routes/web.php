@@ -10,6 +10,7 @@ Route::get('/product_details/{id}',[UserController::class,'productDetails'])->na
 Route::get('/allproducts',[UserController::class,'allProducts'])->name('viewallproducts');
 
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/addtocart/{id}', [UserController::class, 'addToCart'])->middleware(['auth', 'verified'])->name('add_to_cart');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

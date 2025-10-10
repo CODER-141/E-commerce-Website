@@ -2,6 +2,13 @@
 <base href='/public'>
 @section('product_details')
 
+@if(session('cart_message'))
+<div style="margin-bottom:10px; color:black; background-color:green; padding:10px; border-radius:5px;">
+    {{ session('cart_message') }}
+</div> 
+
+@endif
+
 <div style="max-width:1000px; margin:0 auto; padding:20px">
     <a href="{{ route('index') }}" style="display:inline-block; margin-bottom:20px; color:#2a5885; text-decoration:none;">&larr;
         Back to Products</a>
@@ -33,8 +40,10 @@
                 </ul>
             </div> --}}
 
-            <button style="background:#2a5885; color:white;border:none; padding:12px 25px; font-size:16px; border-radius:4px;
-            cursor:pointer;">Add to Cart</button>
+            <a href="{{ route('add_to_cart',$product->id) }}" style="background:#2a5885; color:white;border:none; padding:12px 25px; font-size:16px; 
+            border-radius:4px;cursor:pointer;">
+                Add to Cart
+            </a>
         </div>
     </div>
 
