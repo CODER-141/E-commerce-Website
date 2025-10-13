@@ -38,7 +38,8 @@
             <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
           </div>
           <div class="right-menu list-inline no-margin-bottom">    
-            <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link messages-toggle"><i class="icon-email"></i><span class="badge dashbg-1">5</span></a>
+            <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="http://example.com" data-toggle="dropdown" 
+              aria-haspopup="true" aria-expanded="false" class="nav-link messages-toggle"><i class="icon-email"></i><span class="badge dashbg-1">5</span></a>
           </div>
 
             <!-- Log out               -->

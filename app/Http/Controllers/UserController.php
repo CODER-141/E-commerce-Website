@@ -20,19 +20,34 @@ class UserController extends Controller
         }
     }
     public function home(){
-        $products = Product::latest()->take(2)->get();
-        return view('index',compact('products')); 
+        if(Auth::check()){
+            $count = ProductCart::where('user_id',Auth::id())->count();
+        }else{
+            $count = '';
+        }
+        $products = Product::latest()->take(3)->get();
+        return view('index',compact('products','count')); 
 
     }
 
     public function productDetails($id){
+                if(Auth::check()){
+            $count = ProductCart::where('user_id',Auth::id())->count();
+        }else{
+            $count = '';
+        }
         $product = Product::findOrFail($id);
-        return view('product_details',compact('product'));
+        return view('product_details',compact('product','count'));
     }
 
     public function allProducts(){
+                if(Auth::check()){
+            $count = ProductCart::where('user_id',Auth::id())->count();
+        }else{
+            $count = '';
+        }
         $products =Product::all();
-        return view('allproducts',compact('products'));
+        return view('allproducts',compact('products','count'));
     }
 
     public function addToCart($id){

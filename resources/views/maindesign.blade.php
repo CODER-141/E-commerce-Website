@@ -90,7 +90,7 @@
                 </a>
             @endif
             <a href="">
-              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+              <i class="fa fa-shopping-bag" aria-hidden="true"></i><span class="badge dashbg-1">{{ $count }}</span>
             </a>
             <form class="form-inline ">
               <button class="btn nav_search-btn" type="submit">
