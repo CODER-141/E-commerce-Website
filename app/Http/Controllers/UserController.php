@@ -59,6 +59,7 @@ class UserController extends Controller
         $product_cart->save();
         return redirect()->back()->with('cart_message','Product added to the cart successfully!');
     }
+
     public function cartproducts(){
         if(Auth::check()){
             $count = ProductCart::where('user_id',Auth::id())->count();
@@ -66,7 +67,12 @@ class UserController extends Controller
         }else{
             $count = '';
         }
-
         return view('viewcartproducts',compact('count','cart'));
+    }
+
+    public function removeCartProduct($id){
+        $cart_product = ProductCart::findOrFail($id);
+        $cart_product->delete();
+        return redirect()->back()->with('cart_message','Product removed from the cart successfully!');
     }
 }
