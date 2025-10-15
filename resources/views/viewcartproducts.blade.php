@@ -1,7 +1,8 @@
 @extends('maindesign')
 
 @section('viewcart_products')
-<div style="max-width:70%; margin:0 auto;padding:20px;">
+
+<div style="max-width:1000px; margin:0 auto;padding:20px;">
 <table style="width:100%; border-collapse:collapse; font-family:Arial, sans-serif;">
     <thead>
         <tr style="background-color: #f2f2f2;">
@@ -36,6 +37,20 @@
         </tr>
     </tbody>
 </table>
+
+
+@if (session('confirm_order'))
+<div style="margin-bottom:10px; color:black; background-color:green; padding:10px; border-radius:5px;">
+    {{ session('confirm_order') }}
+</div>
+@endif
+
+    <form action="{{ route('confirm_order') }}" method="POST" style="margin-top: 20px;">
+        @csrf
+        <input type="text" name="receiver_address" id="" placeholder="Enter your Address" required> <br><br>
+        <input type="text" name="receiver_phone" id="" placeholder="Enter your Phone Number" required> <br><br>
+        <input class="btn btn-primary" type="submit" name="submit" value="Confirm Order"><br><br>
+    </form>
 
 </div>
 @endsection
