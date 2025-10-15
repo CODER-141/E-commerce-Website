@@ -12,6 +12,9 @@
         </tr>
     </thead>
     <tbody>
+        @php
+            $price = 0;
+        @endphp
         @foreach ( $cart as $cart_product )
         <tr style="border-bottom: 1px solid #add;">
             <td style="padding: 12px;"> {{ $cart_product->product->product_title }}</td>
@@ -21,8 +24,18 @@
             </td>
             <td style="padding:12px;"><a href="{{ route('removecartproduct', $cart_product->id) }}">Remove</a></td>
         </tr>
+        @php
+            $price = $price + $cart_product->product->product_price;
+        @endphp
         @endforeach
+        <tr style="border-bottom: 1px solid #add; background-color:#f2f2f2;">
+            <td style="padding: 12px; font-weight: bold;"> Total price :</td>
+            <td style="padding: 12px;">{{ $price }}</td>
+            <td style="padding: 12px;"></td>
+            <td style="padding: 12px;"></td>
+        </tr>
     </tbody>
 </table>
+
 </div>
 @endsection
