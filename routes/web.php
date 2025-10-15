@@ -11,6 +11,7 @@ Route::get('/allproducts',[UserController::class,'allProducts'])->name('viewallp
 
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/addtocart/{id}', [UserController::class, 'addToCart'])->middleware(['auth', 'verified'])->name('add_to_cart');
+Route::get('/cartproducts', [UserController::class, 'cartProducts'])->middleware(['auth', 'verified'])->name('cartproducts');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
