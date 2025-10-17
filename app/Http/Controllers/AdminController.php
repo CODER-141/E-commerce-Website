@@ -50,28 +50,90 @@ class AdminController extends Controller
         return view('admin.addproduct',compact('categories'));
     }
 
-    public function postAddProduct(Request $request){
-        $product = new Product();
+    // public function postAddProduct(Request $request){
+    //     $product = new Product();
 
-        $product -> product_title =$request -> product_title;
-        $product -> product_description =$request -> product_description;
-        $product -> product_quantity =$request -> product_quantity;
-        $product -> product_price =$request -> product_price;
+    //     $product -> product_title =$request -> product_title;
+    //     $product -> product_description =$request -> product_description;
+    //     $product -> product_quantity =$request -> product_quantity;
+    //     $product -> product_price =$request -> product_price;
 
-        $image=$request->product_image;
-        if($image){
-            $imagename = time().'.'.$image->getClientOriginalExtension();
-            $product->product_image=$imagename;
-        }
+    //     $image=$request->product_image;
+    //     if($image){
+    //         $imagename = time().'.'.$image->getClientOriginalExtension();
+    //         $product->product_image=$imagename;
+    //     }
 
-        $product -> product_category =$request -> product_category;
-        $product -> save();
+    //     $product -> product_category =$request -> product_category;
+    //     $product -> save();
 
-        if($image && $product->save()){
-            $request->product_image->move('products',$imagename);
-        }
-        return redirect()->back()->with('product_message','Product Added Successfullt!');
+    //     if($image && $product->save()){
+    //         $request->product_image->move('products',$imagename);
+    //     }
+    //     return redirect()->back()->with('product_message','Product Added Successfullt!');
+    // }
+
+    public function postAddProduct(Request $request)
+{
+    $product = new Product();
+
+    // Set product details
+    $product->product_title = $request->product_title;
+    $product->product_description = $request->product_description;
+    $product->product_quantity = $request->product_quantity;
+    $product->product_price = $request->product_price;
+    $product->product_category = $request->product_category;
+
+    // Handle image upload and watermark
+    if ($request->hasFile('product_image')) {
+        $image = $request->file('product_image');
+
+        // ✅ Call the watermark function instead of normal move()
+        $imagename = $this->storeImage($image);
+
+        // Save the image name in the database
+        $product->product_image = $imagename;
     }
+
+    // Save the product
+    $product->save();
+
+    return redirect()->back()->with('product_message', 'Product Added Successfully!');
+}
+
+
+    // ✅ New function to handle image storage with watermark
+    private function storeImage($image)
+{
+    $imageName = time() . random_int(1, 100) . '.' . $image->extension();
+    $imagePath = public_path('products/') . $imageName;
+
+    // Move the uploaded image to /public/products/
+    $image->move(public_path('products/'), $imageName);
+
+    // Load the image into PHP memory
+    $img = imagecreatefromstring(file_get_contents($imagePath));
+
+    // Watermark settings
+    $font = 10; // font size
+    $white = imagecolorallocate($img, 255, 0, 0); // white color
+    $text = "Giftshop.com"; // watermark text
+
+    // Calculate position (bottom-right)
+    $textX = imagesx($img) - (imagefontwidth($font) * strlen($text)) - 10;
+    $textY = imagesy($img) - imagefontheight($font) - 10;
+
+    // Add text
+    imagestring($img, $font, $textX, $textY, $text, $white);
+
+    // Save final image (overwrite original)
+    imagejpeg($img, $imagePath);
+
+    // Free memory
+    imagedestroy($img);
+
+    return $imageName;
+}
 
     public function viewProduct(){
         //this paginate(1) 1-> show the how many items must show in one page
