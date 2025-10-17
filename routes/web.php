@@ -36,6 +36,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/update_product/{id}', [AdminController::class, 'updateProduct'])->name('admin.updateproduct');
     route::post('/update_product/{id}', [AdminController::class, 'postUpdateProduct'])->name('admin.postupdateproduct');
     route::any('/search', [AdminController::class, 'searchProduct'])->name('admin.searchproduct');
+    Route::get('/vieworders', [AdminController::class, 'viewOrders'])->name('admin.vieworders');
 
 });
 

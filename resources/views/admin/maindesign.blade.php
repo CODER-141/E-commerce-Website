@@ -89,7 +89,7 @@
                       <a href="{{ route('admin.addproduct') }}">Add Product</a></li>
                     <li class="{{ request()->routeIs('admin.viewproduct') ? 'active' : '' }}">
                       <a href="{{ route('admin.viewproduct') }}">View Product</a></li>
-                    <li><a href="#">View Oders</a></li>
+                    <li><a href="{{ route('admin.vieworders') }}">View Oders</a></li>
                   </ul>
                 </li>
         </ul>
@@ -114,6 +114,8 @@
           @yield('add_product')
 
           @yield('update_product')
+
+          @yield('view_orders')
 
         </section>
 
