@@ -28,7 +28,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/view_category', [AdminController::class, 'viewCategory'])->name('admin.viewcategory');
     Route::get('/delete_category/{id}', [AdminController::class, 'deleteCategory'])->name('admin.categorydelete');
     Route::get('/update_category/{id}', [AdminController::class, 'updateCategory'])->name('admin.categoryupdate');
-    route::post('/update_category/{id}', [AdminController::class, 'postUpdateCategory'])->name('admin.postupdatecategory');
+    Route::post('/update_category/{id}', [AdminController::class, 'postUpdateCategory'])->name('admin.postupdatecategory');
     Route::get('/add_product', [AdminController::class, 'addProduct'])->name('admin.addproduct');
     route::post('/add_product', [AdminController::class, 'postAddProduct'])->name('admin.postaddproduct');
     Route::get('/view_product', [AdminController::class, 'viewProduct'])->name('admin.viewproduct');
@@ -37,6 +37,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     route::post('/update_product/{id}', [AdminController::class, 'postUpdateProduct'])->name('admin.postupdateproduct');
     route::any('/search', [AdminController::class, 'searchProduct'])->name('admin.searchproduct');
     Route::get('/vieworders', [AdminController::class, 'viewOrders'])->name('admin.vieworders');
+    Route::post('/change_status/{id}', [AdminController::class, 'changeStatus'])->name('admin.change_status');
+    
 
 });
 
