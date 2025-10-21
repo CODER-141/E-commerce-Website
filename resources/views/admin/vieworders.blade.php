@@ -12,6 +12,7 @@
             <th style="padding: 12px; text-align:left; border-bottom:1px solid #add;">Product price</th>
             <th style="padding: 12px; text-align:left; border-bottom:1px solid #add;">Product image</th>
             <th style="padding: 12px; text-align:left; border-bottom:1px solid #add;">Status</th>
+            <th style="padding: 12px; text-align:left; border-bottom:1px solid #add;">PDF</th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +36,9 @@
                     </select>
                     <input type="submit" name="submit" value="submit" onclick="return confirm('Are you Want to confirm')">
                 </form>
+            </td>
+            <td style="padding: 12px;">
+                <a href="{{ route('admin.downloadpdf',$order->id) }}" class="btn btn-primary">Generate PDF</a>
             </td>
         </tr>
         @endforeach

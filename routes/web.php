@@ -40,6 +40,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     route::any('/search', [AdminController::class, 'searchProduct'])->name('admin.searchproduct');
     Route::get('/vieworders', [AdminController::class, 'viewOrders'])->name('admin.vieworders');
     Route::post('/change_status/{id}', [AdminController::class, 'changeStatus'])->name('admin.change_status');
+    Route::get('/downloadpdf/{id}', [AdminController::class, 'downloadPDF'])->name('admin.downloadpdf');
+    
     
 
 });
